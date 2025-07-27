@@ -319,10 +319,15 @@ const language = [
   { name: 'English', code: 'en' },
   { name: 'Indonesia', code: 'id' },
 ]
-const selectedLanguage = ref(language[0])
+const langStore = useLanguageStore()
+const selectedLanguage = ref(
+  language.find(lang => lang.code === langStore.language) || language[0]
+)
+
 watch(selectedLanguage, (newVal) => {
   useLanguageStore().setLanguage(newVal.code)
 })
+
 const formattedDate = (date: Date | string) => {
   if (!date) return null // atau "Loading..."
 

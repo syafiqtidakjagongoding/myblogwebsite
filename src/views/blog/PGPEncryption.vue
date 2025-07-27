@@ -85,7 +85,7 @@ onMounted(async () => {
   >
     <!-- Article Title and Meta -->
     <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
-      {{ isEnglish ? 'What is OpenPGP Encryption' : 'Apa itu OpenPGP Encryption' }}
+      {{ isEnglish ? 'Stop Leaking Secrets, Use OpenPGP to Lock Down Your Data' : 'Berhenti Bocorin Rahasia, Gunakan OpenPGP untuk Amankan Data Kamu' }}
     </h1>
 
     <p

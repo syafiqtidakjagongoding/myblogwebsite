@@ -78,7 +78,7 @@ onMounted(async () => {
     :comments="comments"
   >
     <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
-      {{ isEnglish ? 'What is Monero (XMR)?' : 'Apa itu Monero (XMR)?' }}
+      {{ isEnglish ? 'Tired of Traceable Crypto? Here’s Why Monero Is Different' : 'Ingin Transaksi Kripto Tanpa Jejak? Monero Jawabannya!' }}
     </h1>
 
     <p
