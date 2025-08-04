@@ -95,9 +95,9 @@ onMounted(async () => {
     <!-- Featured Image -->
     <div class="relative">
       <img
-        src="/images/blogs/frugallivingtips/frugalliving.webp"
+        src="/images/blogs/frugallivingtips/thumbnail.png"
         alt="Illustration of Monero coin"
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover "
       />
     </div>
 

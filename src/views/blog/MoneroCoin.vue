@@ -93,7 +93,7 @@ onMounted(async () => {
     <!-- Featured Image -->
     <div class="relative">
       <img
-        src="/images/blogs/monerocoin/monero.webp"
+        src="/images/blogs/monerocoin/monero.png"
         alt="Illustration of Monero coin"
         class="w-full h-full object-cover"
       />
@@ -150,7 +150,7 @@ onMounted(async () => {
         </h2>
         <!-- Ilustrasi Ring Signature -->
         <img
-          src="https://www.coincenter.org/app/uploads/2020/07/image4.jpg"
+          src="/images/blogs/monerocoin/ringsignature.png"
           alt="Ring Signature Illustration"
           class="w-full h-full object-cover"
         />
@@ -187,7 +187,7 @@ onMounted(async () => {
         </h2>
         <!-- Gambar ilustrasi Stealth Address -->
         <img
-          src="https://chainstack.com/wp-content/uploads/2024/02/Diffie-Hellman-key-exchange.png"
+          src="/images/blogs/monerocoin/stealthaddress.png"
           alt="Stealth Address Illustration"
           class="w-full h-full object-cover"
         />
@@ -259,7 +259,7 @@ onMounted(async () => {
 
         <!-- Gambar ilustrasi Dandelion -->
         <img
-          src="https://miro.medium.com/v2/resize:fit:2000/1*vbBxM6EoB3nr_hIDWiDbbg.png"
+          src="/images/blogs/monerocoin/dandelion.png"
           alt="Dandelion Illustration"
           class="w-full h-full object-cover"
         />

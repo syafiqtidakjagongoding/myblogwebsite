@@ -100,7 +100,7 @@ onMounted(async () => {
     <!-- Featured Image -->
     <div class="relative">
       <img
-        src="/images/blogs/pgpencryption/pgp-encryption.webp"
+        src="/images/blogs/pgpencryption/lock.png"
         alt="Illustration of OpenPGP encryption"
         class="w-full h-full object-cover"
       />
