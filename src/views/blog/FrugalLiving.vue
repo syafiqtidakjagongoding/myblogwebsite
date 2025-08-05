@@ -13,7 +13,7 @@ const lang = useLanguageStore()
 const articleCode = 'frugal_living_tips'
 const isEnglish = computed(() => lang.language === 'en')
 useHead({
-  title: 'Syafiq Blog | Frugal Living Guide Why You Should Do it ?',
+  title: 'Syafiq Blog | Frugal Living Tips And Why You Should Do It ',
   link: [
     {
       rel: 'canonical',
@@ -23,7 +23,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Why you should do frugal living, Frugal Living Guide and tips',
+      content: 'Same routine, same paycheck, but still broke? Maybe it’s time for a mindset shift. Frugal living isn’t about being cheap — it’s about spending smarter and living better. Read the full blog to see how small changes can make a big difference.',
     },
     {
       name: 'keywords',
@@ -95,9 +95,9 @@ onMounted(async () => {
     <!-- Featured Image -->
     <div class="relative">
       <img
-        src="/images/blogs/frugallivingtips/thumbnail.png"
+        src="/images/blogs/frugallivingtips/thumbnail.webp"
         alt="Illustration of Monero coin"
-        class="w-full h-full object-cover "
+        class="w-full h-full max-h-140 object-top object-cover "
       />
     </div>
 
@@ -133,9 +133,9 @@ onMounted(async () => {
           {{ isEnglish ? 'Benefits of frugal living' : 'Manfaat frugal living' }}
         </h2>
         <img
-          src="/images/blogs/frugallivingtips/frugalliving.png"
+          src="/images/blogs/frugallivingtips/frugalliving.webp"
           alt="Illustration of Monero coin"
-          class="w-full h-full object-cover object-center mb-3"
+          class="w-full h-full object-cover object-top max-h-170 mb-3"
         />
         <p class="text-gray-700 leading-relaxed mb-4">
           {{
@@ -248,7 +248,7 @@ onMounted(async () => {
           {{ isEnglish ? 'Managing Your Finances Wisely' : 'Mengatur Keuangan dengan Bijak' }}
         </h1>
         <img
-          src="/images/blogs/frugallivingtips/managingmoney.png"
+          src="/images/blogs/frugallivingtips/managingmoney.webp"
           alt="Illustration of Monero coin"
           class="w-full h-full max-h-120 object-cover object-center mb-3"
         />
@@ -317,7 +317,7 @@ onMounted(async () => {
           }}
         </h2>
         <img
-          src="/images/blogs/frugallivingtips/budgeting.png"
+          src="/images/blogs/frugallivingtips/budgeting.webp"
           alt="Illustration of Monero coin"
           class="w-full h-full max-h-150 object-cover object-top mb-3"
         />

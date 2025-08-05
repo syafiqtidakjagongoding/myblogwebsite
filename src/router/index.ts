@@ -7,6 +7,7 @@ import FinanceBlog from '@/views/FinanceBlog.vue'
 import PoliticBlog from '@/views/PoliticBlog.vue'
 import MoneroCoin from '@/views/blog/MoneroCoin.vue'
 import FrugalLiving from '@/views/blog/FrugalLiving.vue'
+import TrumpProCrypto from '@/views/blog/TrumpProCrypto.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,41 +18,45 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/blog/tech/what-is-openpgp-encryption",
-      name: "PGPEncryption",
-      component: PGPEncryption
-    },
-      {
-      path: "/blog/tech/what-is-monero",
-      name: "MoneroCoinBlog",
-      component: MoneroCoin
-    },
-      {
-      path: "/blog/education/frugal-living-tips",
-      name: "FrugalLivingTips",
-      component: FrugalLiving
+      path: '/blog/tech/what-is-openpgp-encryption',
+      name: 'PGPEncryption',
+      component: PGPEncryption,
     },
     {
-      path: "/blog/tech",
-      name: "TechBlog",
-      component: TechBlog
+      path: '/blog/tech/what-is-monero',
+      name: 'MoneroCoinBlog',
+      component: MoneroCoin,
     },
     {
-      path: "/blog/education",
-      name: "EducationBlog",
-      component: EducationBlog
+      path: '/blog/education/frugal-living-tips',
+      name: 'FrugalLivingTips',
+      component: FrugalLiving,
+    },
+     {
+      path: '/blog/politic/donald-trump-pro-crypto',
+      name: 'DonaldTrumpProCrypto',
+      component: TrumpProCrypto,
     },
     {
-      path: "/blog/finance",
-      name: "FinanceBlog",
-      component: FinanceBlog
+      path: '/blog/tech',
+      name: 'TechBlog',
+      component: TechBlog,
     },
     {
-      path: "/blog/politic",
-      name: "PoliticBlog",
-      component: PoliticBlog
+      path: '/blog/education',
+      name: 'EducationBlog',
+      component: EducationBlog,
     },
-    
+    {
+      path: '/blog/finance',
+      name: 'FinanceBlog',
+      component: FinanceBlog,
+    },
+    {
+      path: '/blog/politic',
+      name: 'PoliticBlog',
+      component: PoliticBlog,
+    },
   ],
 })
 

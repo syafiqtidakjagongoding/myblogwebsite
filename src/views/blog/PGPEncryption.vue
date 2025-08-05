@@ -11,7 +11,7 @@ import { ref, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
 
 useHead({
-  title: 'Syafiq Blog | OpenPGP Encryption',
+  title: 'Syafiq Blog | Stop Leaking Secrets, Use OpenPGP to Lock Down Your Data',
   link: [
     {
       rel: 'canonical',
@@ -21,7 +21,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'This is a OpenPGP Encryption blog',
+      content: 'Privacy isn’t a luxury — it’s a right. OpenPGP gives you the power to protect your messages from snoopers, hackers, and prying eyes. It’s the gold standard for secure communication, trusted by journalists, devs, and privacy advocates worldwide.',
     },
     {
       name: 'keywords',
@@ -100,9 +100,9 @@ onMounted(async () => {
     <!-- Featured Image -->
     <div class="relative">
       <img
-        src="/images/blogs/pgpencryption/lock.png"
+        src="/images/blogs/pgpencryption/thumbnail.webp"
         alt="Illustration of OpenPGP encryption"
-        class="w-full h-full object-cover"
+        class="w-full h-full max-h-120 object-cover"
       />
     </div>
 
@@ -214,7 +214,7 @@ onMounted(async () => {
           "
         ></p>
         <img
-          src="/images/blogs/pgpencryption/createkey.png"
+          src="/images/blogs/pgpencryption/createkey.webp"
           alt="createkey"
           class="w-full h-full object-cover"
         />
@@ -240,7 +240,7 @@ onMounted(async () => {
           }}
         </h3>
         <img
-          src="/images/blogs/pgpencryption/findpubkey.png"
+          src="/images/blogs/pgpencryption/findpubkey.webp"
           alt="findpubkey"
           class="w-full h-full object-cover"
         />
@@ -254,7 +254,7 @@ onMounted(async () => {
         </p>
         <p class="mb-4">Export</p>
         <img
-          src="/images/blogs/pgpencryption/mypubkey.png"
+          src="/images/blogs/pgpencryption/mypubkey.webp"
           alt="mypubkey"
           class="w-full h-full object-cover object-top"
         />
@@ -272,12 +272,12 @@ onMounted(async () => {
           {{ isEnglish ? 'Chat Online' : 'Komunikasi di Online Chat' }}
         </h3>
         <img
-          src="/images/blogs/pgpencryption/firstcomm.png"
+          src="/images/blogs/pgpencryption/firstcomm.webp"
           alt="firstcomm"
           class="w-full h-full object-cover"
         />
         <img
-          src="/images/blogs/pgpencryption/otherpubkey.png"
+          src="/images/blogs/pgpencryption/otherpubkey.webp"
           alt="otherpubkey"
           class="w-full h-full object-cover mt-2"
         />
@@ -295,7 +295,7 @@ onMounted(async () => {
           {{ isEnglish ? 'Import Their Public Key' : 'Import publickey orang tadi' }}
         </h3>
         <img
-          src="/images/blogs/pgpencryption/importotherpubkey.png"
+          src="/images/blogs/pgpencryption/importotherpubkey.webp"
           alt="importotherpubkey"
           class="w-full h-full object-cover"
         />
@@ -308,14 +308,14 @@ onMounted(async () => {
           }}
         </p>
         <img
-          src="/images/blogs/pgpencryption/certifyotherkey.png"
+          src="/images/blogs/pgpencryption/certifyotherkey.webp"
           alt="certifyotherkey"
           class="w-full mb-3 object-cover"
         />
 
         <p class="mb-4">Certify</p>
         <img
-          src="/images/blogs/pgpencryption/verifyotherwithownkey.png"
+          src="/images/blogs/pgpencryption/verifyotherwithownkey.webp"
           alt="verifyotherwithownkey"
           class="w-full h-full object-cover"
         />
@@ -329,7 +329,7 @@ onMounted(async () => {
           {{ isEnglish ? 'Encrypt the Message' : 'Enkripsi  Pesan' }}
         </h3>
         <img
-          src="/images/blogs/pgpencryption/beginsignkey.png"
+          src="/images/blogs/pgpencryption/beginsignkey.webp"
           alt="beginsignkey"
           class="w-full h-full object-cover"
         />
@@ -350,7 +350,7 @@ onMounted(async () => {
         ></span>
         <p class="mb-4">Click > Tools > Clipboard > Sign/Encrypt</p>
         <img
-          src="/images/blogs/pgpencryption/choosereceiverkey.png"
+          src="/images/blogs/pgpencryption/choosereceiverkey.webp"
           alt="choosereceiverkey"
           class="w-full h-full object-cover"
         />
@@ -369,12 +369,12 @@ onMounted(async () => {
           {{ isEnglish ? 'Send the Encrypted Message' : 'Kirim Pesan Terenkripsi' }}
         </h3>
         <img
-          src="/images/blogs/pgpencryption/firstreply.png"
+          src="/images/blogs/pgpencryption/firstreply.webp"
           alt="firstreply"
           class="w-full h-full object-cover"
         />
         <img
-          src="/images/blogs/pgpencryption/firstreplyfromppl.png"
+          src="/images/blogs/pgpencryption/firstreplyfromppl.webp"
           alt="firstreplyfromppl"
           class="w-full h-full mt-3 object-cover"
         />
@@ -406,7 +406,7 @@ onMounted(async () => {
           }}
         </p>
         <img
-          src="/images/blogs/pgpencryption/decrypting.png"
+          src="/images/blogs/pgpencryption/decrypting.webp"
           alt="decrypting"
           class="w-full h-full object-cover"
         />
@@ -420,7 +420,7 @@ onMounted(async () => {
           "
         ></p>
         <img
-          src="/images/blogs/pgpencryption/messagefromppl.png"
+          src="/images/blogs/pgpencryption/messagefromppl.webp"
           alt="messagefromppl"
           class="w-full h-full object-cover"
         />

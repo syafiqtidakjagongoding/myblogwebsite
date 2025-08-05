@@ -13,7 +13,7 @@ const lang = useLanguageStore()
 const articleCode = 'whatis_monerocoin'
 const isEnglish = computed(() => lang.language === 'en')
 useHead({
-  title: 'Syafiq Blog | What is monero ?',
+  title: 'Syafiq Blog | Tired of Traceable Crypto? Here’s Why Monero Is Different',
   link: [
     {
       rel: 'canonical',
@@ -23,7 +23,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'This is a monero coin blog',
+      content: 'Your bank knows everything. Blockchains? Even worse. Monero breaks the system — no tracking, no exposure, no compromise.',
     },
     {
       name: 'keywords',
@@ -93,9 +93,9 @@ onMounted(async () => {
     <!-- Featured Image -->
     <div class="relative">
       <img
-        src="/images/blogs/monerocoin/monero.png"
+        src="/images/blogs/monerocoin/monero.webp"
         alt="Illustration of Monero coin"
-        class="w-full h-full object-cover"
+        class="w-full h-full max-h-125 object-cover"
       />
     </div>
 
@@ -150,9 +150,9 @@ onMounted(async () => {
         </h2>
         <!-- Ilustrasi Ring Signature -->
         <img
-          src="/images/blogs/monerocoin/ringsignature.png"
+          src="/images/blogs/monerocoin/ringsignature.webp"
           alt="Ring Signature Illustration"
-          class="w-full h-full object-cover"
+          class="w-full h-full max-h-130 object-cover"
         />
 
         <p
@@ -187,9 +187,9 @@ onMounted(async () => {
         </h2>
         <!-- Gambar ilustrasi Stealth Address -->
         <img
-          src="/images/blogs/monerocoin/stealthaddress.png"
+          src="/images/blogs/monerocoin/stealthaddress.webp"
           alt="Stealth Address Illustration"
-          class="w-full h-full object-cover"
+          class="w-full h-full max-h-112 object-cover"
         />
         <p
           class="mb-4"
@@ -258,12 +258,7 @@ onMounted(async () => {
         </h2>
 
         <!-- Gambar ilustrasi Dandelion -->
-        <img
-          src="/images/blogs/monerocoin/dandelion.png"
-          alt="Dandelion Illustration"
-          class="w-full h-full object-cover"
-        />
-
+      
         <p
           class="mb-4"
           v-html="
@@ -314,7 +309,7 @@ onMounted(async () => {
         ></p>
 
         <!-- Gambar ilustrasi Bulletproofs -->
-        <!-- <img src="/images/blogs/monero/bulletproofs.png" alt="Bulletproofs Illustration" class="w-full h-full object-cover my-4 rounded-xl shadow-md" /> -->
+        <!-- <img src="/images/blogs/monero/bulletproofs.webp" alt="Bulletproofs Illustration" class="w-full h-full object-cover my-4 rounded-xl shadow-md" /> -->
 
         <p
           class="mb-4"

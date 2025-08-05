@@ -6,17 +6,18 @@ WORKDIR /app
 COPY package*.json .
 
 # Install dependencies
-RUN npm i -g yarn
-
-RUN yarn
+RUN npm i
 
 # Copy source code
 COPY . .
 
-# Set environment variable dari argumen
-ENV TES="ENV_TES"
+ENV VITE_SUPABASE_URL="MY_APP_SUPABASE_URL"
+ENV VITE_SUPABASE_ANON_KEY="MY_APP_SUPABASE_ANON_KEY"
+ENV VITE_DB_PASS="MY_APP_DB_PASS"
+ENV VITE_BASE_URL="MY_APP_BASE_URL"
+ENV VITE_ENVIRONMENT="MY_APP_ENVIRONMENT"
 
-RUN yarn build
+RUN npm run build
 
 # Use a lightweight web server to serve the app
 FROM nginx:alpine
@@ -34,6 +35,8 @@ EXPOSE 80
 # Adding healthcheck to container
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
   CMD curl --fail http://localhost:80/ || exit 1
+
+EXPOSE 80
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
