@@ -1,0 +1,6 @@
+node_modules
+*.env.*
+*.sh
+pngtowebp.sh
+README.md
+.git*
