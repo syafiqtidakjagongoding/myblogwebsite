@@ -11,7 +11,7 @@ import { ref, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
 
 useHead({
-  title: 'Syafiq Blog | Stop Leaking Secrets, Use OpenPGP to Lock Down Your Data',
+  title: 'Stop Leaking Secrets, Use OpenPGP to Lock Down Your Data',
   link: [
     {
       rel: 'canonical',

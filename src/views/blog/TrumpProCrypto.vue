@@ -13,7 +13,7 @@ const lang = useLanguageStore()
 const articleCode = 'donald_trump_pro_crypto'
 const isEnglish = computed(() => lang.language === 'en')
 useHead({
-  title: 'Syafiq Blog | Donald Trump Supports Bitcoin – How Will It Shape the Crypto Landscape?',
+  title: 'Donald Trump Supports Bitcoin – How Will It Shape the Crypto Landscape?',
   link: [
     {
       rel: 'canonical',

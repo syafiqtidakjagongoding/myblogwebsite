@@ -32,7 +32,7 @@ const router = createRouter({
       name: 'FrugalLivingTips',
       component: FrugalLiving,
     },
-     {
+    {
       path: '/blog/politic/donald-trump-pro-crypto',
       name: 'DonaldTrumpProCrypto',
       component: TrumpProCrypto,

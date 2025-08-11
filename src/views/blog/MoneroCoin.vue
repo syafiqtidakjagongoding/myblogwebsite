@@ -13,7 +13,7 @@ const lang = useLanguageStore()
 const articleCode = 'whatis_monerocoin'
 const isEnglish = computed(() => lang.language === 'en')
 useHead({
-  title: 'Syafiq Blog | Tired of Traceable Crypto? Here’s Why Monero Is Different',
+  title: 'Tired of Traceable Crypto? Here’s Why Monero Is Different',
   link: [
     {
       rel: 'canonical',

@@ -13,7 +13,7 @@ const lang = useLanguageStore()
 const articleCode = 'frugal_living_tips'
 const isEnglish = computed(() => lang.language === 'en')
 useHead({
-  title: 'Syafiq Blog | Frugal Living Tips And Why You Should Do It ',
+  title: 'Frugal Living Tips And Why You Should Do It ',
   link: [
     {
       rel: 'canonical',
