@@ -96,7 +96,7 @@ onMounted(async () => {
     <div class="relative">
       <img
         src="/images/blogs/frugallivingtips/thumbnail.webp"
-        alt="Illustration of Monero coin"
+        alt="Illustration of people reading book"
         class="w-full h-full max-h-140 object-top object-cover "
       />
     </div>
@@ -134,7 +134,7 @@ onMounted(async () => {
         </h2>
         <img
           src="/images/blogs/frugallivingtips/frugalliving.webp"
-          alt="Illustration of Monero coin"
+          alt="Illustration of frugal living"
           class="w-full h-full object-cover object-top max-h-170 mb-3"
         />
         <p class="text-gray-700 leading-relaxed mb-4">
@@ -249,7 +249,7 @@ onMounted(async () => {
         </h1>
         <img
           src="/images/blogs/frugallivingtips/managingmoney.webp"
-          alt="Illustration of Monero coin"
+          alt="Illustration of people managing money"
           class="w-full h-full max-h-120 object-cover object-center mb-3"
         />
         <p class="text-gray-700 leading-relaxed mb-4">
@@ -318,7 +318,7 @@ onMounted(async () => {
         </h2>
         <img
           src="/images/blogs/frugallivingtips/budgeting.webp"
-          alt="Illustration of Monero coin"
+          alt="Illustration of 50/30/20 rules of money"
           class="w-full h-full max-h-150 object-cover object-top mb-3"
         />
         <ul class="list-disc pl-5">

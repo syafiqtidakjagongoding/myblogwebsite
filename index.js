@@ -22,6 +22,7 @@ export default {
         '/blog/education',
         '/blog/finance',
         '/blog/politic',
+        '/blog/education/gen-z-spending-habits-indonesia'
       ]
 
       const url = new URL(request.url)

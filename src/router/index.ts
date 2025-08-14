@@ -8,6 +8,7 @@ import PoliticBlog from '@/views/PoliticBlog.vue'
 import MoneroCoin from '@/views/blog/MoneroCoin.vue'
 import FrugalLiving from '@/views/blog/FrugalLiving.vue'
 import TrumpProCrypto from '@/views/blog/TrumpProCrypto.vue'
+import GenZSpendingHabits from '@/views/blog/GenZSpendingHabits.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +58,11 @@ const router = createRouter({
       name: 'PoliticBlog',
       component: PoliticBlog,
     },
+    {
+      path: '/blog/education/gen-z-spending-habits-indonesia',
+      name: 'GenZSpendingHabits',
+      component: GenZSpendingHabits
+    }
   ],
 })
 
