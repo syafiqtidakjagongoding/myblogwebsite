@@ -11,7 +11,7 @@ export default {
           ASSET_MANIFEST: JSON.parse(env.__STATIC_CONTENT_MANIFEST),
         },
       )
-    } catch (e) {
+    } catch (err) {
       const urls = [
         '/',
         '/blog/tech/what-is-openpgp-encryption',
@@ -21,6 +21,7 @@ export default {
         '/blog/tech',
         '/blog/education',
         '/blog/finance',
+        '/blog/tech/is-file-extension-important',
         '/blog/politic',
         '/blog/education/gen-z-spending-habits-indonesia'
       ]
