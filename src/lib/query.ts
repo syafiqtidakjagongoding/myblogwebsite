@@ -110,6 +110,7 @@ export async function getRelatedBlogExcept(articleCode: string) {
     .select()
     .not('article_code', 'eq', articleCode)
     .eq('is_ready', isReady)
+    .limit(6)
   return await data
 }
 

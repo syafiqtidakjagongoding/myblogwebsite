@@ -9,6 +9,7 @@ import MoneroCoin from '@/views/blog/MoneroCoin.vue'
 import FrugalLiving from '@/views/blog/FrugalLiving.vue'
 import TrumpProCrypto from '@/views/blog/TrumpProCrypto.vue'
 import GenZSpendingHabits from '@/views/blog/GenZSpendingHabits.vue'
+import IsFileExtensionImportant from '@/views/blog/IsFileExtensionImportant.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/blog/tech/what-is-monero',
       name: 'MoneroCoinBlog',
       component: MoneroCoin,
+    },
+    {
+      path: '/blog/tech/is-file-extension-important',
+      name: 'IsFileExtensionImportantBlog',
+      component: IsFileExtensionImportant
     },
     {
       path: '/blog/education/frugal-living-tips',
@@ -61,8 +67,8 @@ const router = createRouter({
     {
       path: '/blog/education/gen-z-spending-habits-indonesia',
       name: 'GenZSpendingHabits',
-      component: GenZSpendingHabits
-    }
+      component: GenZSpendingHabits,
+    },
   ],
 })
 
