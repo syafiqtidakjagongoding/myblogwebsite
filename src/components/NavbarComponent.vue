@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { PenTool, Menu, X } from 'lucide-vue-next'
+import {  Menu, X } from 'lucide-vue-next'
 
 const isOpen = ref(false)
 </script>
@@ -10,7 +10,6 @@ const isOpen = ref(false)
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex w-full justify-between items-center h-16">
         <RouterLink to="/" class="flex items-center justify-center">
-          <PenTool class="md:w-5 hidden md:block md:h-5 text-black" />
           <span class="md:text-xl text-lg font-bold text-blue-900">Syafiq's Blog</span>
         </RouterLink>
         <div class="hidden md:flex items-center justify-between space-x-20">
