@@ -43,7 +43,7 @@
             </div>
           </div>
 
-          <div class="flex md:mt-0 mt-4 max-w-1/2 flex-col items-center gap-5">
+          <div class="flex md:mt-0 mt-4 mx-3 flex-col items-center gap-5">
             <h3 class="md:text-3xl text-xl font-semibold">Support me</h3>
             <!-- Trakteer -->
             <div class="flex flex-col text-sm gap-2">
@@ -74,8 +74,12 @@
                 <span>Buy me a coffee</span>
               </a>
 
-              <div class="flex items-center gap-1 max-w-100">
-                <img src="/images/icon/monero-icon.png" alt="Ko-fi" class="md:w-12 w-5 ml-[-8px]" />
+              <div class="flex items-center gap-1 max-w-100 flex-wrap">
+                <img
+                  src="/images/icon/monero-icon.png"
+                  alt="Monero"
+                  class="md:w-12 w-8 ml-[-6px]"
+                />
                 <p class="truncate">
                   XMR :
                   <span class="text-wrap"
@@ -89,7 +93,7 @@
                   Copy
                 </button>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
                 <img src="/images/icon/usdt-trc20.png" alt="usdt" class="md:w-8 w-5" />
                 <p>USDT (TRC20) : <span>TLFrZBWiC4B69bhDPcYZMFMRsX2b91oDYt</span></p>
                 <button
@@ -99,7 +103,7 @@
                   Copy
                 </button>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
                 <img src="/images/icon/btcln-icon.png" alt="bitcoin icon" class="md:w-8 w-5" />
                 <p>BTC Lightning : <span>mentalquince39@walletofsatoshi.com</span></p>
                 <button
