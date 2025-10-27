@@ -43,8 +43,8 @@
             </div>
           </div>
 
-          <div class="flex md:mt-0 mt-4 mx-3 flex-col items-center gap-5">
-            <h3 class="md:text-3xl text-xl font-semibold">Support me</h3>
+          <div class="flex md:mt-0 mt-4 flex-col items-center gap-5">
+            <h3 class="md:text-3xl text-xl font-semibold text-center">Support me</h3>
             <!-- Trakteer -->
             <div class="flex flex-col text-sm gap-2">
               <a
@@ -74,13 +74,14 @@
                 <span>Buy me a coffee</span>
               </a>
 
-              <div class="flex items-center gap-1 max-w-100 flex-wrap">
+              <div class="flex items-center gap-1 max-w-100 ">
                 <img
                   src="/images/icon/monero-icon.png"
                   alt="Monero"
                   class="md:w-12 w-8 ml-[-6px]"
                 />
-                <p class="truncate">
+                
+                <p class="truncate w-30 md:w-60">
                   XMR :
                   <span class="text-wrap"
                     >46PdUhW3Cm46PAXanWY1MHZTzCrUgSp23fbjk9irapJCQAe13ARhQrt24AxJPuRzDfF4ZtoqzcUcxDzYHQZsZsGQ2PGCDHr</span
@@ -93,9 +94,9 @@
                   Copy
                 </button>
               </div>
-              <div class="flex items-center gap-2 flex-wrap">
+              <div class="flex items-center gap-1 max-w-100 ">
                 <img src="/images/icon/usdt-trc20.png" alt="usdt" class="md:w-8 w-5" />
-                <p>USDT (TRC20) : <span>TLFrZBWiC4B69bhDPcYZMFMRsX2b91oDYt</span></p>
+                <p class="truncate w-40 md:w-full">USDT (TRC20) : <span class="text-wrap">TLFrZBWiC4B69bhDPcYZMFMRsX2b91oDYt</span></p>
                 <button
                   onclick="navigator.clipboard.writeText('TLFrZBWiC4B69bhDPcYZMFMRsX2b91oDYt')"
                   class="text-xs bg-gray-700 text-white px-2 py-1 rounded"
@@ -103,9 +104,9 @@
                   Copy
                 </button>
               </div>
-              <div class="flex items-center gap-2 flex-wrap">
+              <div class="flex items-center gap-1 max-w-100 ">
                 <img src="/images/icon/btcln-icon.png" alt="bitcoin icon" class="md:w-8 w-5" />
-                <p>BTC Lightning : <span>mentalquince39@walletofsatoshi.com</span></p>
+                <p class="truncate w-40 md:w-full">BTC LN : <span class="truncate">mentalquince39@walletofsatoshi.com</span></p>
                 <button
                   onclick="navigator.clipboard.writeText('mentalquince39@walletofsatoshi.com')"
                   class="text-xs bg-gray-700 text-white px-2 py-1 rounded"
