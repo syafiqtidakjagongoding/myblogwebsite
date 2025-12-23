@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "prepare": "husky"
+    "prepare": "node -e \"process.env.CI || require('husky').install()\""
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",
