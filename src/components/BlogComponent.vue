@@ -12,7 +12,7 @@
                 class="relative w-full cursor-default rounded-lg bg-white py-2 pl-6 pr-10 text-left shadow-sm focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
               >
                 <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                  <Globe class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <font-awesome-icon :icon="['fas', 'globe']" size="lg" />
                 </span>
                 <span class="block truncate md:text-md text-xs">{{ selectedLanguage.name }}</span>
               </ListboxButton>
@@ -53,14 +53,14 @@
           </Listbox>
         </div>
       </div>
-      <div class="flex flex-wrap items-center gap-3 p-2 mr-4">
+      <div class="flex flex-wrap items-center gap-3  mr-4">
         <!-- WhatsApp -->
         <a
           :href="`https://wa.me/?text=${encodeURIComponent(url)}`"
           target="_blank"
           title="WhatsApp"
         >
-          <MessageCircle class="w-5 h-5 text-green-600 hover:text-green-700" />
+          <font-awesome-icon :icon="['fab', 'whatsapp']" size="lg" />
         </a>
 
         <!-- Facebook -->
@@ -69,7 +69,7 @@
           target="_blank"
           title="Facebook"
         >
-          <Facebook class="w-5 h-5 text-blue-600 hover:text-blue-700" />
+          <font-awesome-icon :icon="['fab', 'facebook']" size="lg" />
         </a>
 
         <!-- Telegram -->
@@ -78,7 +78,7 @@
           target="_blank"
           title="Telegram"
         >
-          <Send class="w-5 h-5 text-blue-400 hover:text-blue-500" />
+          <font-awesome-icon :icon="['fas', 'send']" size="lg" />
         </a>
 
         <!-- Twitter / X -->
@@ -87,7 +87,7 @@
           target="_blank"
           title="Twitter"
         >
-          <Twitter class="w-5 h-5 text-black hover:text-gray-800" />
+          <font-awesome-icon :icon="['fab', 'x-twitter']" size="lg" />
         </a>
 
         <!-- LinkedIn -->
@@ -96,11 +96,11 @@
           target="_blank"
           title="LinkedIn"
         >
-          <Linkedin class="w-5 h-5 text-blue-800 hover:text-blue-900" />
+          <font-awesome-icon :icon="['fab', 'linkedin']" size="lg" />
         </a>
         <!-- Copy Link -->
         <button @click="copyLink" title="Copy link">
-          <Copy class="w-5 h-5 text-gray-600 hover:text-black" />
+          <font-awesome-icon :icon="['fas', 'copy']" size="lg" />
         </button>
       </div>
       <p class="text-xs mt-1 text-gray-400 italic" v-if="articlePublished">
@@ -123,7 +123,7 @@
                 {{ tag }}
               </div>
               <div class="flex items-center text-gray-600">
-                <BookOpen class="h-4 w-4 mr-1" />
+                <font-awesome-icon :icon="['fas', 'book-open']" size="xl" />
                 <span>{{ reader }} read</span>
               </div>
             </div>
@@ -137,7 +137,8 @@
                 target="_blank"
                 title="WhatsApp"
               >
-                <MessageCircle class="w-5 h-5 text-green-600 hover:text-green-700" />
+              <font-awesome-icon :icon="['fab', 'whatsapp']" size="lg" />
+
               </a>
 
               <!-- Facebook -->
@@ -146,7 +147,7 @@
                 target="_blank"
                 title="Facebook"
               >
-                <Facebook class="w-5 h-5 text-blue-600 hover:text-blue-700" />
+              <font-awesome-icon :icon="['fab', 'facebook']" size="lg" />
               </a>
 
               <!-- Telegram -->
@@ -155,7 +156,7 @@
                 target="_blank"
                 title="Telegram"
               >
-                <Send class="w-5 h-5 text-blue-400 hover:text-blue-500" />
+                <font-awesome-icon :icon="['fas', 'send']" size="lg" />
               </a>
 
               <!-- Twitter / X -->
@@ -164,7 +165,7 @@
                 target="_blank"
                 title="Twitter"
               >
-                <Twitter class="w-5 h-5 text-black hover:text-gray-800" />
+                <font-awesome-icon :icon="['fab', 'x-twitter']" size="lg" />
               </a>
 
               <!-- LinkedIn -->
@@ -173,20 +174,24 @@
                 target="_blank"
                 title="LinkedIn"
               >
-                <Linkedin class="w-5 h-5 text-blue-800 hover:text-blue-900" />
+              <font-awesome-icon :icon="['fab', 'linkedin']" size="lg" />
               </a>
 
               <!-- Copy Link -->
               <button @click="copyLink" title="Copy link">
-                <Copy class="w-5 h-5 text-gray-600 hover:text-black" />
+                <font-awesome-icon :icon="['fas', 'copy']" size="lg" />
               </button>
             </div>
             <div class="flex">
               <button @click="toggleLike">
-                <Heart
+                <font-awesome-icon
+                  :icon="[isLiked ? 'fas' : 'far', 'heart']"
+                  size="lg"
                   :class="[
-                    'transition-all duration-200',
-                    isLiked ? 'text-red-500 fill-red-500' : 'text-gray-400 hover:text-red-300',
+                    'transition-all duration-200 cursor-pointer',
+                    isLiked
+                      ? 'text-red-500'
+                      : 'text-gray-400 hover:text-red-300',
                   ]"
                 />
               </button>
@@ -228,7 +233,7 @@
           Published on {{ articlePublished }}
         </p>
         <div class="mt-10">
-          <h2 class="text-xl font-semibold mb-4">💬 Tanggapan</h2>
+          <h2 class="text-xl font-semibold mb-4">💬 Comment</h2>
 
           <form @submit.prevent="submitComment" class="space-y-2">
             <input
@@ -249,7 +254,7 @@
               type="submit"
               class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
             >
-             Send
+              Send
             </button>
           </form>
 
@@ -272,17 +277,6 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useLanguageStore } from '@/store/language'
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
-import {
-  Globe,
-  BookOpen,
-  MessageCircle,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Copy,
-  Send,
-} from 'lucide-vue-next'
-import { Heart } from 'lucide-vue-next'
 import { decrementLikeByid, incrementLikeByid, insertComments } from '@/lib/query'
 import type { Comments } from '@/lib/types'
 
@@ -321,7 +315,7 @@ const language = [
 ]
 const langStore = useLanguageStore()
 const selectedLanguage = ref(
-  language.find(lang => lang.code === langStore.language) || language[0]
+  language.find((lang) => lang.code === langStore.language) || language[0],
 )
 
 watch(selectedLanguage, (newVal) => {
@@ -344,7 +338,6 @@ const formattedDate = (date: Date | string) => {
   })
 }
 
-
 const articlePublished = computed(() => {
   const raw = props.date_published
   if (!raw) return null // atau "Loading..."
@@ -361,7 +354,6 @@ const articlePublished = computed(() => {
     second: '2-digit',
   })
 })
-
 
 const hideAlert = () => {
   showAlert.value = false
@@ -428,6 +420,5 @@ const toggleLike = () => {
   }, 1000)
 }
 
-onMounted(() => {
-})
+onMounted(() => {})
 </script>

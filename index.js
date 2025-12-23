@@ -11,7 +11,7 @@ export default {
           ASSET_MANIFEST: JSON.parse(env.__STATIC_CONTENT_MANIFEST),
         },
       )
-    } catch (err) {
+    } catch  {
       const urls = [
         '/',
         '/blog/tech/what-is-openpgp-encryption',
@@ -36,19 +36,19 @@ export default {
       }
 
       const notFoundHtml = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>404 Not Found</title>
-  <meta http-equiv="refresh" content="3;url=/">
-</head>
-<body>
-  <h1>404 - Page Not Found</h1>
-  <p>You will be redirected to the home page in 3 seconds...</p>
-</body>
-</html>
-`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <title>404 Not Found</title>
+          <meta http-equiv="refresh" content="3;url=/">
+        </head>
+        <body>
+          <h1>404 - Page Not Found</h1>
+          <p>You will be redirected to the home page in 3 seconds...</p>
+        </body>
+        </html>
+      `
 
       return new Response(notFoundHtml, {
         status: 404,

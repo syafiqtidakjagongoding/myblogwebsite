@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import {  Menu, X } from 'lucide-vue-next'
 
 const isOpen = ref(false)
 </script>
@@ -33,7 +32,10 @@ const isOpen = ref(false)
         <div class="flex gap-2 md:mt-0 md:mb-1 mt-2 justify-center items-center">
           <div class="md:hidden block">
             <Button variant="ghost" size="sm" class="" @click="isOpen = !isOpen">
-              <component :is="isOpen ? X : Menu" class="w-5 h-5" />
+              <font-awesome-icon :icon="['fas', 'x']" size="xl" />
+              <font-awesome-icon :icon="['fas', 'menu']" size="xl" />
+
+              <!-- <component :is="isOpen ? X : Menu" class="w-5 h-5" /> -->
             </Button>
           </div>
         </div>
