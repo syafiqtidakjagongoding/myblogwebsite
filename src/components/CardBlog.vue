@@ -1,6 +1,6 @@
 <template>
   <router-link :to="path" @click.prevent="handleClick">
-    <div class="max-w-xs bg-white rounded-lg  shadow-lg overflow-hidden border border-gray-200">
+    <div class="max-w-xs bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
       <!-- Header Image with Badge and Share Icon -->
       <div class="relative">
         <img :src="picture" :alt="picture" class="w-full h-48 object-cover" />
@@ -27,12 +27,16 @@
         <!-- Course Details -->
         <div class="flex items-center justify-between mt-3 text-sm">
           <div class="flex items-center text-gray-600">
-            <BookOpen class="h-4 w-4 mr-1" />
+            <font-awesome-icon :icon="['fas', 'book-open']" size="xl" />
             <span>{{ reader }} read</span>
           </div>
 
           <div class="flex items-center">
-            <Heart class="transition-all duration-200 text-gray-400" />
+            <font-awesome-icon
+              :icon="['far', 'heart']"
+              size="xl"
+              :class="['text-gray-400']"
+            />
             <span>{{ likeTotal }}</span>
           </div>
         </div>
@@ -43,7 +47,6 @@
 </template>
 
 <script setup lang="ts">
-import { Heart, BookOpen } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { incrementTotalReadById } from '@/lib/query'
 

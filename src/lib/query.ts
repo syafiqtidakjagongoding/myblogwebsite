@@ -22,7 +22,7 @@ export async function insertComments(article_id: number, name: string | null, co
 }
 
 export async function getCommentByArticleCode(article_id: number): Promise<Comments[] | null> {
-  const { data } = await supabase.from(commentTables).select().eq('article_id', article_id).eq('approved', true)
+  const { data } = await supabase.from(commentTables).select().eq('article_id', article_id)
   return data
 }
 
