@@ -1,6 +1,0 @@
-main = "index.js"
-name = "vue-worker"
-compatibility_date = "2025-08-11"
-
-
-assets = { directory = "./dist", binding = "ASSETS" }
