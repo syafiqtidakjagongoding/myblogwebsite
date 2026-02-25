@@ -1,42 +1,39 @@
-FROM node:22-alpine AS build
-
-# Set workdir in docker container
+# Build stage
+FROM node:22 AS build
 WORKDIR /app
 
-COPY package*.json .
+# Install Python 3.11 for building better-sqlite3
+RUN apt-get update && apt-get install -y python3.11 python3.11-venv python3-pip make g++ && \
+    ln -sf /usr/bin/python3.11 /usr/bin/python && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
-RUN npm i
+COPY package.json ./
 
-# Copy source code
+# Install deps
+RUN npm install
+
+# Rebuild better-sqlite3 with correct Python
+RUN npm rebuild better-sqlite3
+
+# Copy the entire project
 COPY . .
-
-ENV VITE_SUPABASE_URL="MY_APP_SUPABASE_URL"
-ENV VITE_SUPABASE_ANON_KEY="MY_APP_SUPABASE_ANON_KEY"
-ENV VITE_DB_PASS="MY_APP_DB_PASS"
-ENV VITE_BASE_URL="MY_APP_BASE_URL"
-ENV VITE_ENVIRONMENT="MY_APP_ENVIRONMENT"
 
 RUN npm run build
 
-# Use a lightweight web server to serve the app
-FROM nginx:alpine
+# Production stage
+FROM node:22 AS production
+WORKDIR /app
 
-# Copy the build output to the Nginx web server directory
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copy blog.db if exists (use shell to handle missing file)
+RUN test -f /app/blog.db && cp /app/blog.db /app/blog.db || echo "No blog.db found"
 
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+# Copy .output
+COPY --from=build /app/.output ./.output
+COPY --from=build /app/package.json ./
 
-COPY ./env.sh /docker-entrypoint.d/env.sh
-RUN chmod +x /docker-entrypoint.d/env.sh
+# Copy node_modules (including rebuilt better-sqlite3)
+COPY --from=build /app/node_modules ./node_modules
 
-EXPOSE 80
-
-# Adding healthcheck to container
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl --fail http://localhost:80/ || exit 1
-
-EXPOSE 80
-
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# run the app
+EXPOSE 3000
+CMD ["node", ".output/server/index.mjs"]
