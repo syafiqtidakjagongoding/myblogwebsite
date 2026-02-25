@@ -12,7 +12,6 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@commitlint/cli": "^20.4.2",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
@@ -34,6 +33,7 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.2",
     "@nuxt/eslint": "^1.15.2",
     "@types/better-sqlite3": "^7.6.13",
