@@ -1,4 +1,5 @@
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { sql } from "drizzle-orm";
 
 export const articles = sqliteTable("articles", {
   id: integer("id").primaryKey({ autoIncrement: true }),
@@ -8,8 +9,7 @@ export const articles = sqliteTable("articles", {
   picturePath: text("picture_path").notNull(),
   path: text("path").notNull(),
   tags: text("tags", { mode: "json" }).$type<string[]>().notNull(),
-  datePublished: integer("date_published", { mode: "timestamp" }).notNull(),
-  isReady: integer("is_ready", { mode: "boolean" }).notNull().default(false),
+  datePublished: integer("date_published", { mode: "timestamp" }).notNull().default(sql`strftime('%s', 'now')`),
   totalRead: integer("total_read").notNull().default(0),
   like: integer("like").notNull().default(0),
 });
@@ -21,6 +21,6 @@ export const comments = sqliteTable("comments", {
     .references(() => articles.id),
   name: text("name"),
   content: text("content").notNull(),
-  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull().default(sql`strftime('%s', 'now')`),
   approved: integer("approved", { mode: "boolean" }).notNull().default(false),
 });

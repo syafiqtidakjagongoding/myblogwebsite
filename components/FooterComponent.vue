@@ -22,7 +22,7 @@
               </a>
 
               <a
-                href="https://mastodon.social/@lettucenerd"
+                href="https://h.syafiq-paradisam.my.id/@me"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-gray-400 hover:text-pink-400 transition-colors duration-200"

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, onMounted  } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import BlogComponent from '@/components/BlogComponent.vue'
-import CardBlog from '@/components/CardBlog.vue'
 import { useLanguageStore } from '@/store/language'
-import { getBlogByArticleCode, getCommentByArticleCode, getRelatedBlogExcept } from '@/lib/query'
-import type { BlogStat, Comments } from '@/lib/types'
+import { getBlogByArticleCode, getCommentByArticleCode } from '@/lib/query'
+import type { Comments } from '@/lib/types'
 const lang = useLanguageStore()
 const isEnglish = computed(() => lang.language === 'en')
 
@@ -30,7 +29,6 @@ useHead({
   ],
 })
 
-const relatedBlog = ref<BlogStat[] | null>([])
 const tags = ref<string[]>([])
 const totalLike = ref<number>(0)
 const id = ref<number>(0)
@@ -49,15 +47,6 @@ async function getBlog() {
   datePublished.value = data.datePublished
 }
 
-async function fetchRelatedBlog() {
-  try {
-    const data = await getRelatedBlogExcept(articleCode)
-    relatedBlog.value = data
-  } catch (err) {
-    console.log(err)
-  }
-}
-
 async function getComments() {
   if (id.value == 0) {
     console.warn('id masih kosong, getComments dibatalkan')
@@ -69,7 +58,7 @@ async function getComments() {
 }
 onMounted(async () => {
   await getBlog()
-  await Promise.all([fetchRelatedBlog(), getComments()])
+  await getComments()
 })
 </script>
 
@@ -523,26 +512,6 @@ onMounted(async () => {
       </div>
     </div>
   </BlogComponent>
-  <!-- Related Articles -->
-  <section class="mt-12 mx-auto lg:max-w-4xl w-full flex flex-col justify-center pb-8 px-8">
-    <h2 class="text-2xl font-bold text-gray-900 text-left mb-6">Related Articles</h2>
-    <div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <card-blog
-          v-for="blog in relatedBlog"
-          :id="blog.id"
-          :key="blog.id"
-          :picture-path="blog.picturePath"
-          :path="blog.path"
-          :reader="blog.totalRead"
-          :title="blog.title"
-          :like-total="blog.like"
-          :desc="blog.description"
-          :tags="blog.tags"
-          :date-published="blog.datePublished"
-        />
-      </div>
-    </div>
-  </section>
+  <RelatedArticles :articleCode="articleCode" />
   </div>
 </template>

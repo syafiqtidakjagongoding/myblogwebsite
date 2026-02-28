@@ -1,6 +1,10 @@
 #!/bin/bash
 
 for file in *.png; do
-    cwebp "$file" -o "${file%.png}.webp"
+    magick "$file" "${file%.png}.webp"
+done
+
+for file in *.jpg; do
+    magick "$file" "${file%.jpg}.webp"
 done
 

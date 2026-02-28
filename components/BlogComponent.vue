@@ -78,7 +78,7 @@
           target="_blank"
           title="Telegram"
         >
-          <font-awesome-icon :icon="['fas', 'send']" size="lg" />
+          <font-awesome-icon :icon="['fab', 'telegram']" size="lg" />
         </a>
 
         <!-- Twitter / X -->
@@ -156,7 +156,7 @@
                 target="_blank"
                 title="Telegram"
               >
-                <font-awesome-icon :icon="['fas', 'send']" size="lg" />
+                <font-awesome-icon :icon="['fab', 'telegram']" size="lg" />
               </a>
 
               <!-- Twitter / X -->
@@ -352,6 +352,7 @@ const formattedDate = (date: Date | string) => {
 
 const articlePublished = computed(() => {
   const raw = props.datePublished
+  console.log(raw)
   if (!raw) return null // atau "Loading..."
 
   const date = new Date(raw)

@@ -3,7 +3,7 @@ FROM node:22 AS build
 WORKDIR /app
 
 # Install Python 3.11 for building better-sqlite3
-RUN apt-get update && apt-get install -y python3.11 python3.11-venv python3-pip make g++ && \
+RUN apt-get update && apt-get install -y python3.11 python3.11-venv python3-pip make g++ sqlite3 && \
     ln -sf /usr/bin/python3.11 /usr/bin/python && \
     rm -rf /var/lib/apt/lists/*
 
