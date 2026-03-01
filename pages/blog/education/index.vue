@@ -1,8 +1,8 @@
 <template>
   <BlogsCategory title="Education Blog">
        <div v-if="educationBlog?.length == 0" class="w-full h-screen justify-center items-center">
-      <h1 class="text-2xl font-semibold mb-2">Artikel belum terbuat 😕</h1>
-      <p class="text-gray-600">Konten sedang disiapkan. Silakan kembali lagi nanti!</p>
+      <h1 class="text-2xl font-semibold mb-2">No articles yet</h1>
+      <p class="text-gray-600">Content is being prepared. Please come back later!</p>
     </div>
     <card-blog 
       v-for="blog in educationBlog"

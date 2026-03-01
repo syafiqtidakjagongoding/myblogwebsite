@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    image: ghcr.io/syafiqtidakjagongoding/myblogwebsite:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./blog.db:/app/blog.db
+      - ./docker-entrypoint.sh:/docker-entrypoint.sh
+    entrypoint: ["/docker-entrypoint.sh"]
+    environment:
+      - NUXT_PUBLIC_BASE_URL=${NUXT_PUBLIC_BASE_URL:-http://localhost:3000}
+      - NUXT_SMTP_HOST=${NUXT_SMTP_HOST}
+      - NUXT_SMTP_PORT=${NUXT_SMTP_PORT}
+      - NUXT_SMTP_USER=${NUXT_SMTP_USER}
+      - NUXT_SMTP_PASS=${NUXT_SMTP_PASS}
+      - NUXT_SMTP_TO=${NUXT_SMTP_TO}
+    restart: unless-stopped
