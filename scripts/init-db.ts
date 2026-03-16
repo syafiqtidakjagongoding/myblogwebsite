@@ -33,7 +33,28 @@ sqlite.exec(`
     name TEXT,
     content TEXT NOT NULL,
     created_at INTEGER NOT NULL,
-    approved INTEGER NOT NULL DEFAULT 0
+    FOREIGN KEY (article_id) REFERENCES articles(id)
+  )
+`);
+
+sqlite.exec(`
+  CREATE TABLE IF NOT EXISTS content (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    article_id INTEGER,
+    contentIDN TEXT,
+    contentEN TEXT,
+    created_at INTEGER NOT NULL,
+    FOREIGN KEY (article_id) REFERENCES articles(id)
+  )
+`);
+
+sqlite.exec(`
+  CREATE TABLE IF NOT EXISTS images (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    article_id INTEGER,
+    path TEXT NOT NULL,
+    created_at INTEGER NOT NULL,
+    FOREIGN KEY (article_id) REFERENCES articles(id)
   )
 `);
 

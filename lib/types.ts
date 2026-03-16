@@ -17,5 +17,4 @@ export type Comments = {
   name: string | null
   content: string
   createdAt: Date
-  approved: boolean
 }
