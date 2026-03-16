@@ -6,7 +6,7 @@ import { onMounted, ref } from 'vue'
 const config = useRuntimeConfig()
 
 useHead({
-  title: 'Syafiq Blog',
+  title: 'Syafiq Blog - Technology, Finance, Education & More',
   link: [
     {
       rel: 'canonical',
@@ -16,7 +16,34 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'This is a home',
+      content: 'Explore interesting articles about Technology, Finance, Education, and more. Personal blog by Syafiq with in-depth articles and guides.',
+    },
+    { property: 'og:title', content: 'Syafiq Blog - Technology, Finance, Education & More' },
+    { property: 'og:description', content: 'Explore interesting articles about Technology, Finance, Education, and more.' },
+    { property: 'og:url', content: config.public.baseUrl },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Syafiq Blog - Technology, Finance, Education & More' },
+    { name: 'twitter:description', content: 'Explore interesting articles about Technology, Finance, Education, and more.' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      textContent: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: "Syafiq's Blog",
+        url: config.public.baseUrl,
+        description: 'Personal blog about Technology, Finance, Education, and more.',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${config.public.baseUrl}/search?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      }),
     },
   ],
 })

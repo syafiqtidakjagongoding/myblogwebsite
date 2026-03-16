@@ -22,7 +22,6 @@ export default defineEventHandler(async (event) => {
     name: body.name,
     content: body.content,
     createdAt: new Date(),
-    approved: false
   })
 
   const mailOptions = {

@@ -22,7 +22,7 @@
               </a>
 
               <a
-                href="https://h.syafiq-paradisam.my.id/@me"
+                href="https://libre.shinsyafiq.my.id/l"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-gray-400 hover:text-pink-400 transition-colors duration-200"
@@ -47,7 +47,9 @@
                 aria-label="Email"
                 target="_blank"
               >
-                <font-awesome-icon :icon="['fas', 'envelope']" size="xl" /><span>syafiq_1971@disroot.org</span>
+                <font-awesome-icon :icon="['fas', 'envelope']" size="xl" /><span
+                  >syafiq_1971@disroot.org</span
+                >
               </a>
             </div>
           </div>
@@ -65,7 +67,7 @@
                   src="/images/icon/trakteer.webp"
                   alt="Dukung di Trakteer"
                   class="md:w-8 w-5 rounded-md"
-                >
+                />
                 <span>Traktir cendol yuk!</span>
               </a>
 
@@ -75,11 +77,7 @@
                 target="_blank"
                 class="flex gap-2 items-center"
               >
-                <img
-                  src="/images/icon/cup-border.webp"
-                  alt="Ko-fi"
-                  class="md:w-8 w-5"
-                >
+                <img src="/images/icon/cup-border.webp" alt="Ko-fi" class="md:w-8 w-5" />
                 <span>Buy me a coffee</span>
               </a>
             </div>
@@ -87,7 +85,10 @@
         </div>
         <!-- Copyright -->
         <div class="text-center pt-4 border-t border-gray-800 w-full">
-          <p class="text-gray-500 text-sm">  <font-awesome-icon :icon="['fas', 'copyright']" /> {{ currentYear }} Syafiq. All rights reserved.</p>
+          <p class="text-gray-500 text-sm">
+            <font-awesome-icon :icon="['fas', 'copyright']" /> {{ currentYear }} Syafiq. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </div>

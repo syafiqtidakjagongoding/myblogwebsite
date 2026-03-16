@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
   const code = query.code as string
   
   const result = await db.select().from(articles).where(eq(articles.articleCode, code)).limit(1)
-  
+  console.log(result) 
   if (!result[0]) return null
   
   return {
