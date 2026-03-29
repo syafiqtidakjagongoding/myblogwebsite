@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://syafiq-paradisam.my.id</loc>
-    <lastmod>2025-7-14</lastmod>
+    <loc>https://blog.shinsyafiq.my.id</loc>
+    <lastmod>2026-02-28</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/tech</loc>
-    <lastmod>2025-7-14</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/tech</loc>
+    <lastmod>2026-02-28</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/education</loc>
-    <lastmod>2025-7-14</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/education</loc>
+    <lastmod>2025-08-14</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/politic</loc>
-    <lastmod>2025-7-14</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/politic</loc>
+    <lastmod>2025-08-05</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/tech/what-is-openpgp-encryption</loc>
-    <lastmod>2025-8-8</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/finance</loc>
+    <lastmod>2026-02-28</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/tech/what-is-monero</loc>
-    <lastmod>2025-8-8</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/tech/openpgp-communication</loc>
+    <lastmod>2025-07-13</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/politic/donald-trump-pro-crypto</loc>
-    <lastmod>2025-8-10</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/tech/monero-explained</loc>
+    <lastmod>2025-07-17</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/education/frugal-living-tips</loc>
-    <lastmod>2025-8-1</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/education/frugal-living-tips</loc>
+    <lastmod>2025-07-27</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/education/gen-z-spending-habits-indonesia</loc>
-    <lastmod>2025-8-15</lastmod>
-  </url>
-   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/tech/is-file-extension-important</loc>
-    <lastmod>2025-9-1</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/politic/donald-trum-support-bitcoin</loc>
+    <lastmod>2025-08-05</lastmod>
   </url>
   <url>
-    <loc>https://syafiq-paradisam.my.id/blog/tech/you-should-know-what-is-fediverse</loc>
-    <lastmod>2025-9-1</lastmod>
+    <loc>https://blog.shinsyafiq.my.id/blog/education/consumerism-explained</loc>
+    <lastmod>2025-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.shinsyafiq.my.id/blog/tech/is-file-extension-important</loc>
+    <lastmod>2025-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.shinsyafiq.my.id/blog/tech/fediverse-the-libre-social-media</loc>
+    <lastmod>2026-03-15</lastmod>
   </url>
 </urlset>
