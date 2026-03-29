@@ -12,7 +12,7 @@
             <!-- Social media links -->
             <div class="flex space-x-6 flex-wrap">
               <a
-                href="https://github.com/syafiqtidakjagongoding"
+                href="https://github.com/FuukaSyafiq"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-gray-400 hover:text-white transition-colors duration-200"
@@ -42,13 +42,12 @@
             </div>
             <div class="flex flex-col flex-wrap">
               <a
-                href="https://mail.google.com"
+                href="mailto:lettucelaugh@autistiche.org"
                 class="text-gray-400 flex md:text-md flex-wrap justify-center text-center text-sm gap-2 items-center hover:text-red-400 transition-colors duration-200"
                 aria-label="Email"
-                target="_blank"
               >
                 <font-awesome-icon :icon="['fas', 'envelope']" size="xl" /><span
-                  >syafiq_1971@disroot.org</span
+                  >lettucelaugh@autistiche.org</span
                 >
               </a>
             </div>
