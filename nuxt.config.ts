@@ -18,6 +18,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Syafiq's Blog",
+      link: [
+        { rel: "icon", type: "image/png", href: "/icon.png" },
+      ],
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },

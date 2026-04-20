@@ -108,14 +108,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="isLoading" class="min-h-screen flex items-center justify-center">
+  <div v-if="isLoading" class="min-h-screen flex items-center justify-center bg-blue-300">
     <div class="text-center">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
       <p class="mt-4 text-gray-600">Loading...</p>
     </div>
   </div>
 
-  <div v-else-if="!articleData" class="min-h-screen flex items-center justify-center">
+  <div v-else-if="!articleData" class="min-h-screen flex items-center justify-center bg-blue-300">
     <div class="text-center">
       <h1 class="text-2xl font-bold text-gray-900">Article Not Found</h1>
       <p class="mt-2 text-gray-600">The article you're looking for doesn't exist.</p>

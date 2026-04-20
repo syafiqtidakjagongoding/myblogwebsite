@@ -16,15 +16,22 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Explore interesting articles about Technology, Finance, Education, and more. Personal blog by Syafiq with in-depth articles and guides.',
+      content:
+        'Explore interesting articles about Technology, Finance, Education, and more. Personal blog by Syafiq with in-depth articles and guides.',
     },
     { property: 'og:title', content: 'Syafiq Blog - Technology, Finance, Education & More' },
-    { property: 'og:description', content: 'Explore interesting articles about Technology, Finance, Education, and more.' },
+    {
+      property: 'og:description',
+      content: 'Explore interesting articles about Technology, Finance, Education, and more.',
+    },
     { property: 'og:url', content: config.public.baseUrl },
     { property: 'og:type', content: 'website' },
-    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:card', content: 'aqua_salute.png' },
     { name: 'twitter:title', content: 'Syafiq Blog - Technology, Finance, Education & More' },
-    { name: 'twitter:description', content: 'Explore interesting articles about Technology, Finance, Education, and more.' },
+    {
+      name: 'twitter:description',
+      content: 'Explore interesting articles about Technology, Finance, Education, and more.',
+    },
   ],
   script: [
     {
@@ -77,31 +84,39 @@ onMounted(() => {
 <template>
   <div>
     <!-- Welcome Section -->
-    <section class="w-full py-16 lg:py-24">
+    <section class="w-full py-16 bg-blue-300 lg:py-24">
       <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-center text-center">
           <!-- Title -->
-          <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
+          <img src="/heroimage.png" class="" />
+          <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
             Welcome To MyBlog
           </h1>
 
           <!-- Description -->
           <p class="text-lg lg:text-xl text-gray-600 max-w-2xl mb-10">
-            Explore interesting articles about
-            Technology, Finance, Education, More
+            Explore interesting articles about Technology, Finance, Education, More from me
           </p>
 
           <!-- Stats Cards -->
           <div class="flex flex-wrap items-center justify-center gap-4 lg:gap-8">
-            <div class="bg-gray-100 rounded-2xl px-6 py-4 border border-gray-200 hover:bg-gray-200 transition-all duration-300 hover:scale-105">
+            <div
+              class="bg-gray-100 rounded-2xl px-6 py-4 border border-gray-200 hover:bg-gray-200 transition-all duration-300 hover:scale-105"
+            >
               <div class="lg:text-3xl text-2xl font-bold text-gray-900">{{ totalReader }}</div>
               <div class="lg:text-sm text-xs text-gray-500">Active Readers</div>
             </div>
-            <div class="bg-gray-100 rounded-2xl px-6 py-4 border border-gray-200 hover:bg-gray-200 transition-all duration-300 hover:scale-105">
-              <div class="lg:text-3xl text-2xl font-bold text-gray-900">{{ totalArticle === 0 ? 'Coming Soon' : totalArticle }}</div>
+            <div
+              class="bg-gray-100 rounded-2xl px-6 py-4 border border-gray-200 hover:bg-gray-200 transition-all duration-300 hover:scale-105"
+            >
+              <div class="lg:text-3xl text-2xl font-bold text-gray-900">
+                {{ totalArticle === 0 ? 'Coming Soon' : totalArticle }}
+              </div>
               <div class="lg:text-sm text-xs text-gray-500">Articles</div>
             </div>
-            <div class="bg-gray-100 rounded-2xl px-6 py-4 border border-gray-200 hover:bg-gray-200 transition-all duration-300 hover:scale-105">
+            <div
+              class="bg-gray-100 rounded-2xl px-6 py-4 border border-gray-200 hover:bg-gray-200 transition-all duration-300 hover:scale-105"
+            >
               <div class="lg:text-3xl text-2xl font-bold text-gray-900">{{ totalLike }}</div>
               <div class="lg:text-sm text-xs text-gray-500">Total Likes</div>
             </div>
