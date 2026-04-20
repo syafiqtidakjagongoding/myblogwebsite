@@ -22,11 +22,7 @@
     <!-- Tab Content -->
     <div class="mt-6 overflow-scroll" style="scrollbar-width: none">
       <!-- Tab 1: foryou Cards -->
-      <div
-        v-if="activeTab === 'foryou'"
-        id="foryou"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-      >
+      <div v-if="activeTab === 'foryou'" id="foryou" class="flex flex-wrap gap-6">
         <card-blog
           v-for="blog in forYouBlog"
           :id="blog.id"
@@ -43,10 +39,7 @@
       </div>
 
       <!-- Tab 2: Analytics Cards -->
-      <div
-        v-if="activeTab === 'popular'"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-      >
+      <div v-if="activeTab === 'popular'" class="flex flex-wrap gap-6">
         <card-blog
           v-for="blog in popularBlog"
           :id="blog.id"
@@ -63,10 +56,7 @@
       </div>
 
       <!-- Tab 3: Settings Cards -->
-      <div
-        v-if="activeTab === 'newblog'"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-      >
+      <div v-if="activeTab === 'newblog'" class="flex flex-wrap gap-6">
         <card-blog
           v-for="blog in newBlog"
           :id="blog.id"

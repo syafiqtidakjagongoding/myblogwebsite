@@ -4,7 +4,7 @@
       <h1 class="text-2xl font-semibold mb-2">No articles yet</h1>
       <p class="text-gray-600">Content is being prepared. Please come back later!</p>
     </div>
-    <card-blog 
+    <card-blog
       v-for="blog in techBlog"
       :id="blog.id"
 	  :key="blog.id"
