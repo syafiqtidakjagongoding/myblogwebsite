@@ -17,8 +17,10 @@ const transporter = nodemailer.createTransport({
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   
+  const articleId = Number(body.article_id)
+  
   const _result = await db.insert(comments).values({
-    articleId: body.article_id,
+    articleId,
     name: body.name,
     content: body.content,
     createdAt: new Date(),

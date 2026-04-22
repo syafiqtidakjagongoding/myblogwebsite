@@ -1,5 +1,6 @@
-import { writeFileSync, mkdirSync, existsSync } from 'fs'
-import { join, extname } from 'path'
+import { mkdirSync, existsSync, writeFileSync } from 'fs'
+import { join } from 'path'
+import sharp from 'sharp'
 import { db } from '~/server/db'
 import { images, articles } from '~/server/db/schema'
 import { eq } from 'drizzle-orm'
@@ -35,8 +36,6 @@ export default defineEventHandler(async (event) => {
     }
 
     const articleId = Number(articleIdField.data.toString())
-    const fileName = fileField.filename
-    const fileExt = extname(fileName || '.webp').toLowerCase()
     
     const articleList = await db.select().from(articles).where(eq(articles.id, articleId))
     const article = articleList[0]
@@ -53,11 +52,27 @@ export default defineEventHandler(async (event) => {
     }
 
     const timestamp = Date.now()
-    const newFileName = `${timestamp}${fileExt}`
-    const filePath = join(uploadDir, newFileName)
-    const publicPath = `/images/blogs/${articleCode}/${newFileName}`
-
-    writeFileSync(filePath, fileField.data)
+    const fileName = fileField.filename || 'file'
+    let newFileName: string
+    let publicPath: string
+    
+    const ext = fileName.includes('.') ? fileName.split('.').pop()?.toLowerCase() : ''
+    const imageExts = ['jpg', 'jpeg', 'png', 'webp', 'gif']
+    const isImage = ext && imageExts.includes(ext)
+    
+    if (isImage) {
+      newFileName = `${timestamp}.webp`
+      const savePath = join(uploadDir, newFileName)
+      publicPath = `/images/blogs/${articleCode}/${newFileName}`
+      await sharp(fileField.data)
+        .webp({ quality: 80 })
+        .toFile(savePath)
+    } else {
+      newFileName = `${timestamp}-${fileName}`
+      const savePath = join(uploadDir, newFileName)
+      publicPath = `/images/blogs/${articleCode}/${newFileName}`
+      writeFileSync(savePath, fileField.data)
+    }
 
     const result = await db.insert(images).values({
       articleId,

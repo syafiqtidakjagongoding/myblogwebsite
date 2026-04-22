@@ -22,8 +22,9 @@ export default defineEventHandler(async (event) => {
   }
 
   if (method === 'DELETE') {
-    const body = await readBody(event)
-    await db.delete(comments).where(eq(comments.id, body.id))
+    const query = getQuery(event)
+    const id = Number(query.id)
+    await db.delete(comments).where(eq(comments.id, id))
     return { success: true }
   }
 

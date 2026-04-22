@@ -5,7 +5,6 @@ import { eq } from "drizzle-orm";
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   const articleId = query.articleId as string;
-  console.log(query)
 
   if (!articleId) {
     throw createError({ statusCode: 400, message: "articleId is required" });

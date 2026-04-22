@@ -5,8 +5,8 @@
     <p class="text-gray-600 mt-2">The page you're looking for doesn't exist.</p>
     <div class="flex gap-4 mt-6">
       <button 
-        @click="goBack" 
-        class="px-4 py-2 bg-gray-200 text-gray-800 rounded-xl cursor-pointer hover:bg-gray-300"
+        class="px-4 py-2 bg-gray-200 text-gray-800 rounded-xl cursor-pointer hover:bg-gray-300" 
+        @click="goBack"
       >
         ← Go Back
       </button>

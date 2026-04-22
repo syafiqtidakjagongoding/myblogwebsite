@@ -66,7 +66,7 @@
                   src="/images/icon/trakteer.webp"
                   alt="Dukung di Trakteer"
                   class="md:w-8 w-5 rounded-md"
-                />
+                >
                 <span>Traktir cendol yuk!</span>
               </a>
 
@@ -76,7 +76,7 @@
                 target="_blank"
                 class="flex gap-2 items-center"
               >
-                <img src="/images/icon/cup-border.webp" alt="Ko-fi" class="md:w-8 w-5" />
+                <img src="/images/icon/cup-border.webp" alt="Ko-fi" class="md:w-8 w-5" >
                 <span>Buy me a coffee</span>
               </a>
             </div>
