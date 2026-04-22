@@ -13,7 +13,6 @@ const relatedBlog = ref<BlogStat[] | null>([])
 async function fetchRelatedBlog() {
   try {
     const data = await getRelatedBlogExcept(articleCode)
-    console.log(data)
     relatedBlog.value = data
   } catch (err) {
     console.log(err)

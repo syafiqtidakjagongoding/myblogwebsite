@@ -20,7 +20,7 @@ export const comments = sqliteTable("comments", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   articleId: integer("article_id")
     .notNull()
-    .references(() => articles.id),
+    .references(() => articles.id, { onDelete: 'cascade' }),
   name: text("name"),
   content: text("content").notNull(),
   createdAt: integer("created_at", { mode: "timestamp" })

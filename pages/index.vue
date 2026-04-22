@@ -88,7 +88,7 @@ onMounted(() => {
       <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-center text-center">
           <!-- Title -->
-          <img src="/heroimage.png" class="" />
+          <img src="/heroimage.png" class="" >
           <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
             Welcome To MyBlog
           </h1>

@@ -20,6 +20,7 @@ interface Image {
   id: number
   articleId: number | null
   path: string
+  type?: string
 }
 
 const router = useRouter()
@@ -42,14 +43,14 @@ const fetchArticle = async () => {
     router.push('/dashboard')
     return
   }
-  
+
   isLoading.value = true
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     const articles = await $fetch<Article[]>('/api/dashboard/articles')
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     article.value = articles.find((a) => a.id === articleId.value) || null
-    
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const contents = await $fetch<any>('/api/dashboard/content')
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -93,9 +94,9 @@ const saveContent = async () => {
   isSaving.value = false
 }
 
-const addImage = async () => {
+const addAttachment = async () => {
   if (!selectedFile.value) return
-  
+
   isUploading.value = true
   try {
     const formData = new FormData()
@@ -109,15 +110,15 @@ const addImage = async () => {
     images.value.push(result as Image)
     selectedFile.value = null
   } catch (e) {
-    console.error('Failed to upload image:', e)
-    alert('Failed to upload image')
+    console.error('Failed to upload attachment:', e)
+    alert('Failed to upload attachment')
   }
   isUploading.value = false
 }
 
-const deleteImage = async (id: number) => {
-  if (!confirm('Delete this image?')) return
-  
+const deleteAttachment = async (id: number) => {
+  if (!confirm('Delete this attachment?')) return
+
   try {
     await $fetch('/api/dashboard/images', {
       method: 'DELETE',
@@ -153,9 +154,7 @@ useHead({
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
-            <button @click="goBack" class="mr-4 text-gray-600 hover:text-gray-900">
-              Back
-            </button>
+            <button class="mr-4 text-gray-600 hover:text-gray-900" @click="goBack">Back</button>
             <h1 class="text-xl font-bold">Edit Content</h1>
           </div>
           <div class="flex items-center">
@@ -174,24 +173,24 @@ useHead({
             <div class="border-b border-gray-200 mb-6">
               <nav class="-mb-px flex space-x-8">
                 <button
-                  @click="activeTab = 'idn'"
                   :class="[
                     activeTab === 'idn'
                       ? 'border-blue-500 text-blue-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
                     'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm',
                   ]"
+                  @click="activeTab = 'idn'"
                 >
                   Indonesia
                 </button>
                 <button
-                  @click="activeTab = 'en'"
                   :class="[
                     activeTab === 'en'
                       ? 'border-blue-500 text-blue-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
                     'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm',
                   ]"
+                  @click="activeTab = 'en'"
                 >
                   English
                 </button>
@@ -220,15 +219,15 @@ useHead({
 
             <div class="flex justify-end space-x-3 pt-6 mt-6 border-t">
               <button
-                @click="goBack"
                 class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                @click="goBack"
               >
                 Cancel
               </button>
               <button
-                @click="saveContent"
                 :disabled="isSaving"
                 class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
+                @click="saveContent"
               >
                 {{ isSaving ? 'Saving...' : 'Save Content' }}
               </button>
@@ -237,44 +236,88 @@ useHead({
 
           <div class="bg-white shadow rounded-lg p-6">
             <div class="flex justify-between items-center mb-4">
-              <h3 class="text-lg font-medium">Images</h3>
+              <h3 class="text-lg font-medium">Main Image</h3>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex flex-col items-center justify-between p-2 border rounded">
+                <img
+                  :src="article?.picturePath"
+                  class="h-full w-full object-cover rounded max-h-48"
+                >
+                <span class="text-xs text-gray-500 truncate flex-1 mx-2">{{
+                  article?.picturePath
+                }}</span>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-medium">Attachment</h3>
             </div>
 
             <div class="space-y-3 mb-4">
-              <div v-for="img in images" :key="img.id" class="flex items-center justify-between p-2 border rounded">
-                <img :src="img.path" class="h-12 w-12 object-cover rounded" />
-                <span class="text-xs text-gray-500 truncate flex-1 mx-2">{{ img.path }}</span>
-                <button @click="deleteImage(img.id)" class="text-red-600 hover:text-red-900 text-sm">
+              <div
+                v-for="img in images"
+                :key="img.id"
+                class="flex flex-col items-center justify-between p-2 border rounded"
+              >
+                <img
+                  v-if="img.path.match(/\.(jpg|jpeg|png|gif|webp)$/i)"
+                  :src="img.path"
+                  class="h-full w-full object-cover rounded"
+                >
+                <div
+                  v-else
+                  class="h-full w-full flex items-center justify-center bg-gray-100 rounded py-4"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <span class="text-xs text-gray-500 truncate text-wrap m-2">{{ img.path }}</span>
+                <button
+                  class="w-full py-2 rounded bg-red-600 text-white text-sm"
+                  @click="deleteAttachment(img.id)"
+                >
                   Delete
                 </button>
               </div>
               <div v-if="images.length === 0" class="text-sm text-gray-500 text-center py-4">
-                No images yet
+                No attachments yet
               </div>
             </div>
 
             <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700">Upload Image</label>
+              <label class="block text-sm font-medium text-gray-700">Add Attachment</label>
               <input
                 type="file"
-                accept="image/*"
-                @change="(e) => selectedFile = (e.target as HTMLInputElement).files?.[0] || null"
+                accept="*"
                 class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-              />
+                @change="(e) => (selectedFile = (e.target as HTMLInputElement).files?.[0] || null)"
+              >
               <button
-                @click="addImage"
                 :disabled="!selectedFile || isUploading"
                 class="w-full px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50 text-sm"
+                @click="addAttachment"
               >
-                {{ isUploading ? 'Uploading...' : 'Upload' }}
+                {{ isUploading ? 'Uploading...' : 'Add' }}
               </button>
             </div>
           </div>
         </div>
 
-        <div v-else class="text-center py-8 text-gray-500">
-          Article not found
-        </div>
+        <div v-else class="text-center py-8 text-gray-500">Article not found</div>
       </div>
     </main>
   </div>

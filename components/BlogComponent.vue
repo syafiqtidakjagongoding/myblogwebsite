@@ -14,7 +14,9 @@
                 <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                   <font-awesome-icon :icon="['fas', 'globe']" size="lg" />
                 </span>
-                <span class="block truncate md:text-md text-xs">{{ selectedLanguage?.name || 'English' }}</span>
+                <span class="block truncate md:text-md text-xs">{{
+                  selectedLanguage?.name || 'English'
+                }}</span>
               </ListboxButton>
 
               <transition
@@ -53,7 +55,7 @@
           </Listbox>
         </div>
       </div>
-      <div class="flex flex-wrap items-center gap-3  mr-4">
+      <div class="flex flex-wrap items-center gap-3 mr-4">
         <!-- WhatsApp -->
         <a
           :href="`https://wa.me/?text=${encodeURIComponent(url)}`"
@@ -137,8 +139,7 @@
                 target="_blank"
                 title="WhatsApp"
               >
-              <font-awesome-icon :icon="['fab', 'whatsapp']" size="lg" />
-
+                <font-awesome-icon :icon="['fab', 'whatsapp']" size="lg" />
               </a>
 
               <!-- Facebook -->
@@ -147,7 +148,7 @@
                 target="_blank"
                 title="Facebook"
               >
-              <font-awesome-icon :icon="['fab', 'facebook']" size="lg" />
+                <font-awesome-icon :icon="['fab', 'facebook']" size="lg" />
               </a>
 
               <!-- Telegram -->
@@ -174,7 +175,7 @@
                 target="_blank"
                 title="LinkedIn"
               >
-              <font-awesome-icon :icon="['fab', 'linkedin']" size="lg" />
+                <font-awesome-icon :icon="['fab', 'linkedin']" size="lg" />
               </a>
 
               <!-- Copy Link -->
@@ -189,9 +190,7 @@
                   size="lg"
                   :class="[
                     'transition-all duration-200 cursor-pointer',
-                    isLiked
-                      ? 'text-red-500'
-                      : 'text-gray-400 hover:text-red-300',
+                    isLiked ? 'text-red-500' : 'text-gray-400 hover:text-red-300',
                   ]"
                 />
               </button>
@@ -252,11 +251,16 @@
 
             <button
               type="submit"
-              class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              :disabled="isSubmitting"
+              class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
             >
-              Send
+              {{ isSubmitting ? 'Sending...' : 'Send' }}
             </button>
           </form>
+
+          <div v-if="showSuccessAlert" class="mt-2 text-green-600 text-sm">
+            Your comment has been sent!
+          </div>
 
           <div class="mt-6 space-y-3 max-h-96 overflow-y-scroll" style="scrollbar-width: none">
             <div v-for="comment in props.comments" :key="comment.id" class="border p-3 rounded">
@@ -300,20 +304,35 @@ const props = defineProps<{
 
 const name = ref<string>('')
 const content = ref<string>('')
+const isSubmitting = ref(false)
 
 async function submitComment() {
   if (!content.value.trim()) return
 
-  const res = await insertComments(props.id, name.value, content.value)
-  if (!res) {
-    console.error('error while inserting comment')
-  }
+  isSubmitting.value = true
+  try {
+    const res = await insertComments(props.id, name.value, content.value)
+    if (!res) {
+      console.error('error while inserting comment')
+    } else {
+      showSuccessAlert.value = true
+      clearTimeout(successAlertTimeout)
+      successAlertTimeout = setTimeout(() => {
+        showSuccessAlert.value = false
+      }, 3000)
+    }
 
-  name.value = ''
-  content.value = ''
+    name.value = ''
+    content.value = ''
+  } catch (e) {
+    console.error('Failed to submit comment:', e)
+  }
+  isSubmitting.value = false
 }
 
 const showAlert = ref(false)
+const showSuccessAlert = ref(false)
+let successAlertTimeout: ReturnType<typeof setTimeout>
 let alertTimeout: ReturnType<typeof setTimeout>
 const language = [
   { name: 'English', code: 'en' },
@@ -324,9 +343,12 @@ const selectedLanguage = ref(
   language.find((lang) => lang.code === langStore.language) || language[0],
 )
 
-watch(() => langStore.language, (newLang) => {
-  selectedLanguage.value = language.find((lang) => lang.code === newLang) || language[0]
-})
+watch(
+  () => langStore.language,
+  (newLang) => {
+    selectedLanguage.value = language.find((lang) => lang.code === newLang) || language[0]
+  },
+)
 
 watch(selectedLanguage, (newVal) => {
   if (newVal) {
@@ -352,7 +374,6 @@ const formattedDate = (date: Date | string) => {
 
 const articlePublished = computed(() => {
   const raw = props.datePublished
-  console.log(raw)
   if (!raw) return null // atau "Loading..."
 
   const date = new Date(raw)

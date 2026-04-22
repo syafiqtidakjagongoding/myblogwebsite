@@ -24,7 +24,6 @@ interface ContentData {
 const config = useRuntimeConfig()
 const lang = useLanguageStore()
 const route = useRoute()
-
 const category = computed(() => route.params.category as string)
 const articleCode = computed(() => route.params.articleCode as string)
 const isEnglish = computed(() => lang.language === 'en')
@@ -54,10 +53,7 @@ useHead({
     { name: 'description', content: computed(() => articleData.value?.description || '') },
     {
       property: 'og:image',
-      content: computed(
-        () =>
-          `${config.public.baseUrl}${articleData.value?.picturePath}`,
-      ),
+      content: computed(() => `${config.public.baseUrl}${articleData.value?.picturePath}`),
     },
   ],
 })
@@ -79,7 +75,6 @@ async function getBlog() {
   // Fetch content from database
   try {
     const articleContent = await $fetch<ContentData | null>(`/api/content?articleId=${data.id}`)
-    console.log('Content:', articleContent)
     if (articleContent) {
       blogContent.value = {
         contentIDN: articleContent.contentIDN || '',
@@ -103,14 +98,13 @@ async function getComments() {
 
 onMounted(async () => {
   await getBlog()
-  console.log(blogContent.value)
 })
 </script>
 
 <template>
   <div v-if="isLoading" class="min-h-screen flex items-center justify-center bg-blue-300">
     <div class="text-center">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"/>
       <p class="mt-4 text-gray-600">Loading...</p>
     </div>
   </div>
@@ -132,11 +126,11 @@ onMounted(async () => {
       :reader="reader"
       :comments="comments"
     >
-          <div class="py-8">
+      <div class="py-8">
         <div
           class="max-w-none prose"
           v-html="isEnglish ? blogContent.contentEN : blogContent.contentIDN"
-        ></div>
+        />
       </div>
     </BlogComponent>
     <RelatedArticles :article-code="articleCode" />
