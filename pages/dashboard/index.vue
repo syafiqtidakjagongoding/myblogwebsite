@@ -168,10 +168,10 @@ const saveArticle = async () => {
         formData.append('file', blob, 'cover.jpg')
         formData.append('articleCode', articleCode)
 
-        const result = (await $fetch('/api/dashboard/articles', {
+        const result: { picturePath: string } = await $fetch('/api/dashboard/articles', {
           method: 'POST',
           body: formData,
-        })) as { picturePath: string }
+        }) as any
         form.value.picturePath = result.picturePath
       }
     }
