@@ -42,9 +42,26 @@ npm run dev
 
 Akses: http://localhost:3000
 
-## Environment Variables
+er:
 
-Buat file `.env` untuk konfigurasi:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```env
 NUXT_PUBLIC_BASE_URL=http://localhost:3000
