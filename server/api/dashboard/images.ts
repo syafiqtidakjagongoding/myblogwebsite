@@ -1,9 +1,8 @@
-import { mkdirSync, existsSync, writeFileSync } from 'fs'
-import { join } from 'path'
 import sharp from 'sharp'
 import { db } from '~/server/db'
 import { images, articles } from '~/server/db/schema'
 import { eq } from 'drizzle-orm'
+import { uploadToMinio, deleteFromMinio, MINIO_BUCKET } from '~/server/utils/minio'
 
 export default defineEventHandler(async (event) => {
   const method = event.method
@@ -45,33 +44,25 @@ export default defineEventHandler(async (event) => {
     }
 
     const articleCode = article.articleCode || `article-${articleId}`
-    const uploadDir = join(process.cwd(), 'public', 'images', 'blogs', articleCode)
-    
-    if (!existsSync(uploadDir)) {
-      mkdirSync(uploadDir, { recursive: true })
-    }
-
     const timestamp = Date.now()
     const fileName = fileField.filename || 'file'
-    let newFileName: string
-    let publicPath: string
     
     const ext = fileName.includes('.') ? fileName.split('.').pop()?.toLowerCase() : ''
     const imageExts = ['jpg', 'jpeg', 'png', 'webp', 'gif']
     const isImage = ext && imageExts.includes(ext)
     
+    let publicPath: string
+    
     if (isImage) {
-      newFileName = `${timestamp}.webp`
-      const savePath = join(uploadDir, newFileName)
-      publicPath = `/images/blogs/${articleCode}/${newFileName}`
-      await sharp(fileField.data)
-        .webp({ quality: 80 })
-        .toFile(savePath)
+      const newFileName = `${timestamp}.webp`
+      const objectName = `blogs/${articleCode}/${newFileName}`
+      const buffer = await sharp(fileField.data).webp({ quality: 80 }).toBuffer()
+      publicPath = await uploadToMinio(buffer, objectName, 'image/webp')
     } else {
-      newFileName = `${timestamp}-${fileName}`
-      const savePath = join(uploadDir, newFileName)
-      publicPath = `/images/blogs/${articleCode}/${newFileName}`
-      writeFileSync(savePath, fileField.data)
+      const newFileName = `${timestamp}-${fileName}`
+      const objectName = `blogs/${articleCode}/${newFileName}`
+      const contentType = `application/octet-stream`
+      publicPath = await uploadToMinio(Buffer.from(fileField.data), objectName, contentType)
     }
 
     const result = await db.insert(images).values({
@@ -84,7 +75,20 @@ export default defineEventHandler(async (event) => {
 
   if (method === 'DELETE') {
     const body = await readBody(event)
-    await db.delete(images).where(eq(images.id, body.id))
+    const imageId = body.id
+    
+    const existingImage = await db.select().from(images).where(eq(images.id, imageId))
+    if (existingImage.length > 0 && existingImage[0] && existingImage[0].path) {
+      const imagePath = existingImage[0].path as string
+      if (imagePath.includes(MINIO_BUCKET)) {
+        const objectName = imagePath.split(`/${MINIO_BUCKET}/`)[1]
+        if (objectName) {
+          await deleteFromMinio(objectName)
+        }
+      }
+    }
+    
+    await db.delete(images).where(eq(images.id, imageId))
     return { success: true }
   }
 

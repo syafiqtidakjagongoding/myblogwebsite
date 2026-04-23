@@ -240,12 +240,12 @@ useHead({
             </div>
 
             <div class="mb-4">
-              <div class="flex flex-col items-center justify-between p-2 border rounded">
+              <div class="flex flex-col items-center justify-between flex-wrap p-2 border rounded">
                 <img
                   :src="article?.picturePath"
                   class="h-full w-full object-cover rounded max-h-48"
                 >
-                <span class="text-xs text-gray-500 truncate flex-1 mx-2">{{
+                <span class="text-xs text-gray-500 truncate text-wrap mx-2">{{
                   article?.picturePath
                 }}</span>
               </div>
